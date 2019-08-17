@@ -1,0 +1,4872 @@
+openapi: 3.0.1
+info:
+  title: api
+  description: Evt api
+  license:
+    name: Closed Source
+  version: 0.0.0
+servers:
+  - url: /_db/evt/api
+paths:
+  /attendees:
+    get:
+      tags:
+        - attendee
+      summary: List all attendees
+      description: Retrieves a list of all attendees.
+      operationId: attendeesList
+      responses:
+        '200':
+          description: A list of attendees.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - attendee
+      summary: Create a new attendee
+      description: |-
+        Creates a new attendee from the request body and
+        returns the saved document.
+      operationId: attendeesCreate
+      requestBody:
+        description: The attendee to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created attendee.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The attendee already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/attendees/{key}':
+    get:
+      tags:
+        - attendee
+      summary: Fetch a attendee
+      description: Retrieves a attendee by its key.
+      operationId: attendeesDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The attendee.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - attendee
+      summary: Replace a attendee
+      description: |-
+        Replaces an existing attendee with the request body and
+        returns the new document.
+      operationId: attendeesReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the attendee with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new attendee.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - attendee
+      summary: Remove a attendee
+      description: Deletes a attendee from the database.
+      operationId: attendeesDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - attendee
+      summary: Update a attendee
+      description: |-
+        Patches a attendee with the request body and
+        returns the updated document.
+      operationId: attendeesUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the attendee with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the attendee with.
+        required: false
+      responses:
+        '200':
+          description: The updated attendee.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /discounts:
+    get:
+      tags:
+        - discount
+      summary: List all discounts
+      description: Retrieves a list of all discounts.
+      operationId: discountsList
+      responses:
+        '200':
+          description: A list of discounts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - discount
+      summary: Create a new discount
+      description: |-
+        Creates a new discount from the request body and
+        returns the saved document.
+      operationId: discountsCreate
+      requestBody:
+        description: The discount to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created discount.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The discount already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/discounts/{key}':
+    get:
+      tags:
+        - discount
+      summary: Fetch a discount
+      description: Retrieves a discount by its key.
+      operationId: discountsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The discount.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - discount
+      summary: Replace a discount
+      description: |-
+        Replaces an existing discount with the request body and
+        returns the new document.
+      operationId: discountsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the discount with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new discount.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - discount
+      summary: Remove a discount
+      description: Deletes a discount from the database.
+      operationId: discountsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - discount
+      summary: Update a discount
+      description: |-
+        Patches a discount with the request body and
+        returns the updated document.
+      operationId: discountsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the discount with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the discount with.
+        required: false
+      responses:
+        '200':
+          description: The updated discount.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /events:
+    get:
+      tags:
+        - event
+      summary: List all events
+      description: Retrieves a list of all events.
+      operationId: eventsList
+      responses:
+        '200':
+          description: A list of events.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - event
+      summary: Create a new event
+      description: |-
+        Creates a new event from the request body and
+        returns the saved document.
+      operationId: eventsCreate
+      requestBody:
+        description: The event to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created event.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The event already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/events/{key}':
+    get:
+      tags:
+        - event
+      summary: Fetch a event
+      description: Retrieves a event by its key.
+      operationId: eventsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the event
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The event.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - event
+      summary: Replace a event
+      description: |-
+        Replaces an existing event with the request body and
+        returns the new document.
+      operationId: eventsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the event
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the event with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new event.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - event
+      summary: Remove a event
+      description: Deletes a event from the database.
+      operationId: eventsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the event
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - event
+      summary: Update a event
+      description: |-
+        Patches a event with the request body and
+        returns the updated document.
+      operationId: eventsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the event
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the event with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the event with.
+        required: false
+      responses:
+        '200':
+          description: The updated event.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /orderforms:
+    get:
+      tags:
+        - orderform
+      summary: List all orderforms
+      description: Retrieves a list of all orderforms.
+      operationId: orderformsList
+      responses:
+        '200':
+          description: A list of orderforms.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - orderform
+      summary: Create a new orderform
+      description: |-
+        Creates a new orderform from the request body and
+        returns the saved document.
+      operationId: orderformsCreate
+      requestBody:
+        description: The orderform to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created orderform.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The orderform already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/orderforms/{key}':
+    get:
+      tags:
+        - orderform
+      summary: Fetch a orderform
+      description: Retrieves a orderform by its key.
+      operationId: orderformsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the orderform
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The orderform.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - orderform
+      summary: Replace a orderform
+      description: |-
+        Replaces an existing orderform with the request body and
+        returns the new document.
+      operationId: orderformsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the orderform
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the orderform with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new orderform.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - orderform
+      summary: Remove a orderform
+      description: Deletes a orderform from the database.
+      operationId: orderformsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the orderform
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - orderform
+      summary: Update a orderform
+      description: |-
+        Patches a orderform with the request body and
+        returns the updated document.
+      operationId: orderformsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the orderform
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the orderform with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the orderform with.
+        required: false
+      responses:
+        '200':
+          description: The updated orderform.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /orders:
+    get:
+      tags:
+        - order
+      summary: List all orders
+      description: Retrieves a list of all orders.
+      operationId: ordersList
+      responses:
+        '200':
+          description: A list of orders.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - order
+      summary: Create a new order
+      description: |-
+        Creates a new order from the request body and
+        returns the saved document.
+      operationId: ordersCreate
+      requestBody:
+        description: The order to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The order already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/orders/{key}':
+    get:
+      tags:
+        - order
+      summary: Fetch a order
+      description: Retrieves a order by its key.
+      operationId: ordersDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the order
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - order
+      summary: Replace a order
+      description: |-
+        Replaces an existing order with the request body and
+        returns the new document.
+      operationId: ordersReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the order
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the order with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - order
+      summary: Remove a order
+      description: Deletes a order from the database.
+      operationId: ordersDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the order
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - order
+      summary: Update a order
+      description: |-
+        Patches a order with the request body and
+        returns the updated document.
+      operationId: ordersUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the order
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the order with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the order with.
+        required: false
+      responses:
+        '200':
+          description: The updated order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /organizers:
+    get:
+      tags:
+        - organizer
+      summary: List all organizers
+      description: Retrieves a list of all organizers.
+      operationId: organizersList
+      responses:
+        '200':
+          description: A list of organizers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - organizer
+      summary: Create a new organizer
+      description: |-
+        Creates a new organizer from the request body and
+        returns the saved document.
+      operationId: organizersCreate
+      requestBody:
+        description: The organizer to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created organizer.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The organizer already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/organizers/{key}':
+    get:
+      tags:
+        - organizer
+      summary: Fetch a organizer
+      description: Retrieves a organizer by its key.
+      operationId: organizersDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organizer
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The organizer.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - organizer
+      summary: Replace a organizer
+      description: |-
+        Replaces an existing organizer with the request body and
+        returns the new document.
+      operationId: organizersReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organizer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the organizer with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new organizer.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - organizer
+      summary: Remove a organizer
+      description: Deletes a organizer from the database.
+      operationId: organizersDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organizer
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - organizer
+      summary: Update a organizer
+      description: |-
+        Patches a organizer with the request body and
+        returns the updated document.
+      operationId: organizersUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organizer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the organizer with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the organizer with.
+        required: false
+      responses:
+        '200':
+          description: The updated organizer.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /sessions:
+    get:
+      tags:
+        - session
+      summary: List all sessions
+      description: Retrieves a list of all sessions.
+      operationId: sessionsList
+      responses:
+        '200':
+          description: A list of sessions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - session
+      summary: Create a new session
+      description: |-
+        Creates a new session from the request body and
+        returns the saved document.
+      operationId: sessionsCreate
+      requestBody:
+        description: The session to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created session.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The session already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/sessions/{key}':
+    get:
+      tags:
+        - session
+      summary: Fetch a session
+      description: Retrieves a session by its key.
+      operationId: sessionsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the session
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The session.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - session
+      summary: Replace a session
+      description: |-
+        Replaces an existing session with the request body and
+        returns the new document.
+      operationId: sessionsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the session
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the session with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new session.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - session
+      summary: Remove a session
+      description: Deletes a session from the database.
+      operationId: sessionsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the session
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - session
+      summary: Update a session
+      description: |-
+        Patches a session with the request body and
+        returns the updated document.
+      operationId: sessionsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the session
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the session with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the session with.
+        required: false
+      responses:
+        '200':
+          description: The updated session.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /tickets:
+    get:
+      tags:
+        - ticket
+      summary: List all tickets
+      description: Retrieves a list of all tickets.
+      operationId: ticketsList
+      responses:
+        '200':
+          description: A list of tickets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - ticket
+      summary: Create a new ticket
+      description: |-
+        Creates a new ticket from the request body and
+        returns the saved document.
+      operationId: ticketsCreate
+      requestBody:
+        description: The ticket to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The ticket already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/tickets/{key}':
+    get:
+      tags:
+        - ticket
+      summary: Fetch a ticket
+      description: Retrieves a ticket by its key.
+      operationId: ticketsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ticket
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - ticket
+      summary: Replace a ticket
+      description: |-
+        Replaces an existing ticket with the request body and
+        returns the new document.
+      operationId: ticketsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ticket
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the ticket with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - ticket
+      summary: Remove a ticket
+      description: Deletes a ticket from the database.
+      operationId: ticketsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ticket
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - ticket
+      summary: Update a ticket
+      description: |-
+        Patches a ticket with the request body and
+        returns the updated document.
+      operationId: ticketsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ticket
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the ticket with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the ticket with.
+        required: false
+      responses:
+        '200':
+          description: The updated ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /tickettypes:
+    get:
+      tags:
+        - tickettype
+      summary: List all tickettypes
+      description: Retrieves a list of all tickettypes.
+      operationId: tickettypesList
+      responses:
+        '200':
+          description: A list of tickettypes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - tickettype
+      summary: Create a new tickettype
+      description: |-
+        Creates a new tickettype from the request body and
+        returns the saved document.
+      operationId: tickettypesCreate
+      requestBody:
+        description: The tickettype to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The tickettype already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/tickettypes/{key}':
+    get:
+      tags:
+        - tickettype
+      summary: Fetch a tickettype
+      description: Retrieves a tickettype by its key.
+      operationId: tickettypesDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the tickettype
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - tickettype
+      summary: Replace a tickettype
+      description: |-
+        Replaces an existing tickettype with the request body and
+        returns the new document.
+      operationId: tickettypesReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the tickettype
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the tickettype with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - tickettype
+      summary: Remove a tickettype
+      description: Deletes a tickettype from the database.
+      operationId: tickettypesDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the tickettype
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - tickettype
+      summary: Update a tickettype
+      description: |-
+        Patches a tickettype with the request body and
+        returns the updated document.
+      operationId: tickettypesUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the tickettype
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the tickettype with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the tickettype with.
+        required: false
+      responses:
+        '200':
+          description: The updated tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /usergroups:
+    get:
+      tags:
+        - usergroup
+      summary: List all usergroups
+      description: Retrieves a list of all usergroups.
+      operationId: usergroupsList
+      responses:
+        '200':
+          description: A list of usergroups.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - usergroup
+      summary: Create a new usergroup
+      description: |-
+        Creates a new usergroup from the request body and
+        returns the saved document.
+      operationId: usergroupsCreate
+      requestBody:
+        description: The usergroup to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                title:
+                  type: string
+                perms:
+                  type: array
+                  items: {}
+        required: false
+      responses:
+        '201':
+          description: The created usergroup.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The usergroup already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/usergroups/{key}':
+    get:
+      tags:
+        - usergroup
+      summary: Fetch a usergroup
+      description: Retrieves a usergroup by its key.
+      operationId: usergroupsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the usergroup
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The usergroup.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - usergroup
+      summary: Replace a usergroup
+      description: |-
+        Replaces an existing usergroup with the request body and
+        returns the new document.
+      operationId: usergroupsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the usergroup
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the usergroup with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                title:
+                  type: string
+                perms:
+                  type: array
+                  items: {}
+        required: false
+      responses:
+        '200':
+          description: The new usergroup.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - usergroup
+      summary: Remove a usergroup
+      description: Deletes a usergroup from the database.
+      operationId: usergroupsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the usergroup
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - usergroup
+      summary: Update a usergroup
+      description: |-
+        Patches a usergroup with the request body and
+        returns the updated document.
+      operationId: usergroupsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the usergroup
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the usergroup with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the usergroup with.
+        required: false
+      responses:
+        '200':
+          description: The updated usergroup.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /users:
+    get:
+      tags:
+        - user
+      summary: List all users
+      description: Retrieves a list of all users.
+      operationId: usersList
+      responses:
+        '200':
+          description: A list of users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - user
+      summary: Create a new user
+      description: |-
+        Creates a new user from the request body and
+        returns the saved document.
+      operationId: usersCreate
+      requestBody:
+        description: The user to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created user.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The user already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/users/{key}':
+    get:
+      tags:
+        - user
+      summary: Fetch a user
+      description: Retrieves a user by its key.
+      operationId: usersDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The user.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - user
+      summary: Replace a user
+      description: |-
+        Replaces an existing user with the request body and
+        returns the new document.
+      operationId: usersReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the user
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the user with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new user.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - user
+      summary: Remove a user
+      description: Deletes a user from the database.
+      operationId: usersDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - user
+      summary: Update a user
+      description: |-
+        Patches a user with the request body and
+        returns the updated document.
+      operationId: usersUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the user
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the user with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the user with.
+        required: false
+      responses:
+        '200':
+          description: The updated user.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /attendee_of:
+    get:
+      tags:
+        - attendee_of
+      summary: List all attendee_ofItems
+      description: Retrieves a list of all attendee_ofItems.
+      operationId: attendee_ofList
+      responses:
+        '200':
+          description: A list of attendee_ofItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - attendee_of
+      summary: Create a new attendee_of
+      description: |-
+        Creates a new attendee_of from the request body and
+        returns the saved document.
+      operationId: attendee_ofCreate
+      requestBody:
+        description: The attendee_of to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created attendee_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The attendee_of already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/attendee_of/{key}':
+    get:
+      tags:
+        - attendee_of
+      summary: Fetch a attendee_of
+      description: Retrieves a attendee_of by its key.
+      operationId: attendee_ofDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The attendee_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - attendee_of
+      summary: Replace a attendee_of
+      description: |-
+        Replaces an existing attendee_of with the request body and
+        returns the new document.
+      operationId: attendee_ofReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the attendee_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new attendee_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - attendee_of
+      summary: Remove a attendee_of
+      description: Deletes a attendee_of from the database.
+      operationId: attendee_ofDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - attendee_of
+      summary: Update a attendee_of
+      description: |-
+        Patches a attendee_of with the request body and
+        returns the updated document.
+      operationId: attendee_ofUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the attendee_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the attendee_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the attendee_of with.
+        required: false
+      responses:
+        '200':
+          description: The updated attendee_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /discount_on:
+    get:
+      tags:
+        - discount_on
+      summary: List all discount_onItems
+      description: Retrieves a list of all discount_onItems.
+      operationId: discount_onList
+      responses:
+        '200':
+          description: A list of discount_onItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - discount_on
+      summary: Create a new discount_on
+      description: |-
+        Creates a new discount_on from the request body and
+        returns the saved document.
+      operationId: discount_onCreate
+      requestBody:
+        description: The discount_on to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created discount_on.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The discount_on already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/discount_on/{key}':
+    get:
+      tags:
+        - discount_on
+      summary: Fetch a discount_on
+      description: Retrieves a discount_on by its key.
+      operationId: discount_onDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount_on
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The discount_on.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - discount_on
+      summary: Replace a discount_on
+      description: |-
+        Replaces an existing discount_on with the request body and
+        returns the new document.
+      operationId: discount_onReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount_on
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the discount_on with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new discount_on.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - discount_on
+      summary: Remove a discount_on
+      description: Deletes a discount_on from the database.
+      operationId: discount_onDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount_on
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - discount_on
+      summary: Update a discount_on
+      description: |-
+        Patches a discount_on with the request body and
+        returns the updated document.
+      operationId: discount_onUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the discount_on
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the discount_on with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the discount_on with.
+        required: false
+      responses:
+        '200':
+          description: The updated discount_on.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /group_of:
+    get:
+      tags:
+        - group_of
+      summary: List all group_ofItems
+      description: Retrieves a list of all group_ofItems.
+      operationId: group_ofList
+      responses:
+        '200':
+          description: A list of group_ofItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - group_of
+      summary: Create a new group_of
+      description: |-
+        Creates a new group_of from the request body and
+        returns the saved document.
+      operationId: group_ofCreate
+      requestBody:
+        description: The group_of to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created group_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The group_of already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/group_of/{key}':
+    get:
+      tags:
+        - group_of
+      summary: Fetch a group_of
+      description: Retrieves a group_of by its key.
+      operationId: group_ofDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the group_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The group_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - group_of
+      summary: Replace a group_of
+      description: |-
+        Replaces an existing group_of with the request body and
+        returns the new document.
+      operationId: group_ofReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the group_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the group_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new group_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - group_of
+      summary: Remove a group_of
+      description: Deletes a group_of from the database.
+      operationId: group_ofDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the group_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - group_of
+      summary: Update a group_of
+      description: |-
+        Patches a group_of with the request body and
+        returns the updated document.
+      operationId: group_ofUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the group_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the group_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the group_of with.
+        required: false
+      responses:
+        '200':
+          description: The updated group_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /has_order:
+    get:
+      tags:
+        - has_order
+      summary: List all has_orderItems
+      description: Retrieves a list of all has_orderItems.
+      operationId: has_orderList
+      responses:
+        '200':
+          description: A list of has_orderItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - has_order
+      summary: Create a new has_order
+      description: |-
+        Creates a new has_order from the request body and
+        returns the saved document.
+      operationId: has_orderCreate
+      requestBody:
+        description: The has_order to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created has_order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The has_order already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/has_order/{key}':
+    get:
+      tags:
+        - has_order
+      summary: Fetch a has_order
+      description: Retrieves a has_order by its key.
+      operationId: has_orderDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_order
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The has_order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - has_order
+      summary: Replace a has_order
+      description: |-
+        Replaces an existing has_order with the request body and
+        returns the new document.
+      operationId: has_orderReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_order
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the has_order with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new has_order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - has_order
+      summary: Remove a has_order
+      description: Deletes a has_order from the database.
+      operationId: has_orderDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_order
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - has_order
+      summary: Update a has_order
+      description: |-
+        Patches a has_order with the request body and
+        returns the updated document.
+      operationId: has_orderUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_order
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the has_order with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the has_order with.
+        required: false
+      responses:
+        '200':
+          description: The updated has_order.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /has_ticket:
+    get:
+      tags:
+        - has_ticket
+      summary: List all has_ticketItems
+      description: Retrieves a list of all has_ticketItems.
+      operationId: has_ticketList
+      responses:
+        '200':
+          description: A list of has_ticketItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - has_ticket
+      summary: Create a new has_ticket
+      description: |-
+        Creates a new has_ticket from the request body and
+        returns the saved document.
+      operationId: has_ticketCreate
+      requestBody:
+        description: The has_ticket to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created has_ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The has_ticket already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/has_ticket/{key}':
+    get:
+      tags:
+        - has_ticket
+      summary: Fetch a has_ticket
+      description: Retrieves a has_ticket by its key.
+      operationId: has_ticketDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_ticket
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The has_ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - has_ticket
+      summary: Replace a has_ticket
+      description: |-
+        Replaces an existing has_ticket with the request body and
+        returns the new document.
+      operationId: has_ticketReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_ticket
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the has_ticket with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new has_ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - has_ticket
+      summary: Remove a has_ticket
+      description: Deletes a has_ticket from the database.
+      operationId: has_ticketDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_ticket
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - has_ticket
+      summary: Update a has_ticket
+      description: |-
+        Patches a has_ticket with the request body and
+        returns the updated document.
+      operationId: has_ticketUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_ticket
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the has_ticket with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the has_ticket with.
+        required: false
+      responses:
+        '200':
+          description: The updated has_ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /has_tickettype:
+    get:
+      tags:
+        - has_tickettype
+      summary: List all has_tickettypeItems
+      description: Retrieves a list of all has_tickettypeItems.
+      operationId: has_tickettypeList
+      responses:
+        '200':
+          description: A list of has_tickettypeItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - has_tickettype
+      summary: Create a new has_tickettype
+      description: |-
+        Creates a new has_tickettype from the request body and
+        returns the saved document.
+      operationId: has_tickettypeCreate
+      requestBody:
+        description: The has_tickettype to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created has_tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The has_tickettype already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/has_tickettype/{key}':
+    get:
+      tags:
+        - has_tickettype
+      summary: Fetch a has_tickettype
+      description: Retrieves a has_tickettype by its key.
+      operationId: has_tickettypeDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_tickettype
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The has_tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - has_tickettype
+      summary: Replace a has_tickettype
+      description: |-
+        Replaces an existing has_tickettype with the request body and
+        returns the new document.
+      operationId: has_tickettypeReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_tickettype
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the has_tickettype with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new has_tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - has_tickettype
+      summary: Remove a has_tickettype
+      description: Deletes a has_tickettype from the database.
+      operationId: has_tickettypeDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_tickettype
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - has_tickettype
+      summary: Update a has_tickettype
+      description: |-
+        Patches a has_tickettype with the request body and
+        returns the updated document.
+      operationId: has_tickettypeUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_tickettype
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the has_tickettype with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the has_tickettype with.
+        required: false
+      responses:
+        '200':
+          description: The updated has_tickettype.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /member_of:
+    get:
+      tags:
+        - member_of
+      summary: List all member_ofItems
+      description: Retrieves a list of all member_ofItems.
+      operationId: member_ofList
+      responses:
+        '200':
+          description: A list of member_ofItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - member_of
+      summary: Create a new member_of
+      description: |-
+        Creates a new member_of from the request body and
+        returns the saved document.
+      operationId: member_ofCreate
+      requestBody:
+        description: The member_of to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created member_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The member_of already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/member_of/{key}':
+    get:
+      tags:
+        - member_of
+      summary: Fetch a member_of
+      description: Retrieves a member_of by its key.
+      operationId: member_ofDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the member_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The member_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - member_of
+      summary: Replace a member_of
+      description: |-
+        Replaces an existing member_of with the request body and
+        returns the new document.
+      operationId: member_ofReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the member_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the member_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new member_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - member_of
+      summary: Remove a member_of
+      description: Deletes a member_of from the database.
+      operationId: member_ofDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the member_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - member_of
+      summary: Update a member_of
+      description: |-
+        Patches a member_of with the request body and
+        returns the updated document.
+      operationId: member_ofUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the member_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the member_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the member_of with.
+        required: false
+      responses:
+        '200':
+          description: The updated member_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /ordersettings:
+    get:
+      tags:
+        - ordersetting
+      summary: List all ordersettings
+      description: Retrieves a list of all ordersettings.
+      operationId: ordersettingsList
+      responses:
+        '200':
+          description: A list of ordersettings.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - ordersetting
+      summary: Create a new ordersetting
+      description: |-
+        Creates a new ordersetting from the request body and
+        returns the saved document.
+      operationId: ordersettingsCreate
+      requestBody:
+        description: The ordersetting to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created ordersetting.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The ordersetting already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/ordersettings/{key}':
+    get:
+      tags:
+        - ordersetting
+      summary: Fetch a ordersetting
+      description: Retrieves a ordersetting by its key.
+      operationId: ordersettingsDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ordersetting
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The ordersetting.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - ordersetting
+      summary: Replace a ordersetting
+      description: |-
+        Replaces an existing ordersetting with the request body and
+        returns the new document.
+      operationId: ordersettingsReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ordersetting
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the ordersetting with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new ordersetting.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - ordersetting
+      summary: Remove a ordersetting
+      description: Deletes a ordersetting from the database.
+      operationId: ordersettingsDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ordersetting
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - ordersetting
+      summary: Update a ordersetting
+      description: |-
+        Patches a ordersetting with the request body and
+        returns the updated document.
+      operationId: ordersettingsUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the ordersetting
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the ordersetting with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the ordersetting with.
+        required: false
+      responses:
+        '200':
+          description: The updated ordersetting.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /organized_by:
+    get:
+      tags:
+        - organized_by
+      summary: List all organized_byItems
+      description: Retrieves a list of all organized_byItems.
+      operationId: organized_byList
+      responses:
+        '200':
+          description: A list of organized_byItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - organized_by
+      summary: Create a new organized_by
+      description: |-
+        Creates a new organized_by from the request body and
+        returns the saved document.
+      operationId: organized_byCreate
+      requestBody:
+        description: The organized_by to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created organized_by.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The organized_by already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/organized_by/{key}':
+    get:
+      tags:
+        - organized_by
+      summary: Fetch a organized_by
+      description: Retrieves a organized_by by its key.
+      operationId: organized_byDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organized_by
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The organized_by.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - organized_by
+      summary: Replace a organized_by
+      description: |-
+        Replaces an existing organized_by with the request body and
+        returns the new document.
+      operationId: organized_byReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organized_by
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the organized_by with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new organized_by.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - organized_by
+      summary: Remove a organized_by
+      description: Deletes a organized_by from the database.
+      operationId: organized_byDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organized_by
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - organized_by
+      summary: Update a organized_by
+      description: |-
+        Patches a organized_by with the request body and
+        returns the updated document.
+      operationId: organized_byUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the organized_by
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the organized_by with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the organized_by with.
+        required: false
+      responses:
+        '200':
+          description: The updated organized_by.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /has_perm:
+    get:
+      tags:
+        - has_perm
+      summary: List all has_permItems
+      description: Retrieves a list of all has_permItems.
+      operationId: has_permList
+      responses:
+        '200':
+          description: A list of has_permItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - has_perm
+      summary: Create a new has_perm
+      description: |-
+        Creates a new has_perm from the request body and
+        returns the saved document.
+      operationId: has_permCreate
+      requestBody:
+        description: The has_perm to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created has_perm.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The has_perm already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/has_perm/{key}':
+    get:
+      tags:
+        - has_perm
+      summary: Fetch a has_perm
+      description: Retrieves a has_perm by its key.
+      operationId: has_permDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_perm
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The has_perm.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - has_perm
+      summary: Replace a has_perm
+      description: |-
+        Replaces an existing has_perm with the request body and
+        returns the new document.
+      operationId: has_permReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_perm
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the has_perm with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new has_perm.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - has_perm
+      summary: Remove a has_perm
+      description: Deletes a has_perm from the database.
+      operationId: has_permDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_perm
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - has_perm
+      summary: Update a has_perm
+      description: |-
+        Patches a has_perm with the request body and
+        returns the updated document.
+      operationId: has_permUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the has_perm
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the has_perm with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the has_perm with.
+        required: false
+      responses:
+        '200':
+          description: The updated has_perm.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /part_of:
+    get:
+      tags:
+        - part_of
+      summary: List all part_ofItems
+      description: Retrieves a list of all part_ofItems.
+      operationId: part_ofList
+      responses:
+        '200':
+          description: A list of part_ofItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - part_of
+      summary: Create a new part_of
+      description: |-
+        Creates a new part_of from the request body and
+        returns the saved document.
+      operationId: part_ofCreate
+      requestBody:
+        description: The part_of to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created part_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The part_of already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/part_of/{key}':
+    get:
+      tags:
+        - part_of
+      summary: Fetch a part_of
+      description: Retrieves a part_of by its key.
+      operationId: part_ofDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the part_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The part_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - part_of
+      summary: Replace a part_of
+      description: |-
+        Replaces an existing part_of with the request body and
+        returns the new document.
+      operationId: part_ofReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the part_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the part_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new part_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - part_of
+      summary: Remove a part_of
+      description: Deletes a part_of from the database.
+      operationId: part_ofDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the part_of
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - part_of
+      summary: Update a part_of
+      description: |-
+        Patches a part_of with the request body and
+        returns the updated document.
+      operationId: part_ofUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the part_of
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the part_of with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the part_of with.
+        required: false
+      responses:
+        '200':
+          description: The updated part_of.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /belongs_to:
+    get:
+      tags:
+        - belongs_to
+      summary: List all belongs_toItems
+      description: Retrieves a list of all belongs_toItems.
+      operationId: belongs_toList
+      responses:
+        '200':
+          description: A list of belongs_toItems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    post:
+      tags:
+        - belongs_to
+      summary: Create a new belongs_to
+      description: |-
+        Creates a new belongs_to from the request body and
+        returns the saved document.
+      operationId: belongs_toCreate
+      requestBody:
+        description: The belongs_to to create.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+                _from:
+                  type: string
+                _to:
+                  type: string
+        required: false
+      responses:
+        '201':
+          description: The created belongs_to.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '409':
+          description: The belongs_to already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  '/belongs_to/{key}':
+    get:
+      tags:
+        - belongs_to
+      summary: Fetch a belongs_to
+      description: Retrieves a belongs_to by its key.
+      operationId: belongs_toDetail
+      parameters:
+        - name: key
+          in: path
+          description: The key of the belongs_to
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The belongs_to.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    put:
+      tags:
+        - belongs_to
+      summary: Replace a belongs_to
+      description: |-
+        Replaces an existing belongs_to with the request body and
+        returns the new document.
+      operationId: belongs_toReplace
+      parameters:
+        - name: key
+          in: path
+          description: The key of the belongs_to
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to replace the belongs_to with.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _key:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: The new belongs_to.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    delete:
+      tags:
+        - belongs_to
+      summary: Remove a belongs_to
+      description: Deletes a belongs_to from the database.
+      operationId: belongs_toDelete
+      parameters:
+        - name: key
+          in: path
+          description: The key of the belongs_to
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: HTTP 204 No Content.
+          content: {}
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+        - belongs_to
+      summary: Update a belongs_to
+      description: |-
+        Patches a belongs_to with the request body and
+        returns the updated document.
+      operationId: belongs_toUpdate
+      parameters:
+        - name: key
+          in: path
+          description: The key of the belongs_to
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The data to update the belongs_to with.
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The data to update the belongs_to with.
+        required: false
+      responses:
+        '200':
+          description: The updated belongs_to.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /auth/login:
+    post:
+      tags: []
+      description: Logs a registered user in.
+      operationId: login
+      requestBody:
+        description: Credentials
+        content:
+          application/json:
+            schema:
+              required:
+                - email
+                - password
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+        required: false
+      responses:
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /auth/signup:
+    post:
+      tags: []
+      description: Creates a new user and logs them in.
+      operationId: signup
+      requestBody:
+        description: Credentials
+        content:
+          application/json:
+            schema:
+              required:
+                - email
+                - password
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+        required: false
+      responses:
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /auth/whoami:
+    get:
+      tags: []
+      description: Returns the currently active email.
+      operationId: whoami
+      responses:
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /auth/logout:
+    post:
+      tags: []
+      description: Logs the current user out.
+      operationId: logout
+      responses:
+        '500':
+          description: Default error response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+components: {}
