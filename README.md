@@ -1,0 +1,1 @@
+A tool to generate krakend endpoint configuration from openapi json, built on the openapiv3 crate.

@@ -1,0 +1,6 @@
+image: rust:1.38
+
+test:cargo:
+  script:
+    - rustc --version && cargo --version
+    - cargo test --all --verbose
