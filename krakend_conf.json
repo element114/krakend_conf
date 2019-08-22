@@ -1,19 +1,35 @@
 {
     "version": 2,
-    "extra_config": {},
+    "extra_config": {
+        "github_com/devopsfaith/krakend-cors": {
+            "allow_origins": [
+                "*"
+            ],
+            "expose_headers": [
+                "Content-Length"
+            ],
+            "max_age": "12h",
+            "allow_methods": [
+                "GET",
+                "HEAD",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS",
+                "PATCH"
+            ]
+        }
+    },
     "timeout": "3000ms",
     "cache_ttl": "300s",
     "output_encoding": "json",
-    "tls": {
-      "public_key": "cert.pem",
-      "private_key": "key.pem"
-    },
     "read_timeout": "5s",
     "write_timeout": "10s",
-    "name": "Service name",
+    "name": "API Service",
+    "port": 8443,
     "endpoints": [
         {
-            "endpoint": "/attendees",
+            "endpoint": "/api/attendees",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -32,7 +48,7 @@
             ]
         },
         {
-            "endpoint": "/attendees",
+            "endpoint": "/api/attendees",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -51,7 +67,7 @@
             ]
         },
         {
-            "endpoint": "/attendees/{key}",
+            "endpoint": "/api/attendees/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -70,7 +86,7 @@
             ]
         },
         {
-            "endpoint": "/attendees/{key}",
+            "endpoint": "/api/attendees/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -89,7 +105,7 @@
             ]
         },
         {
-            "endpoint": "/attendees/{key}",
+            "endpoint": "/api/attendees/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -108,7 +124,7 @@
             ]
         },
         {
-            "endpoint": "/attendees/{key}",
+            "endpoint": "/api/attendees/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -127,7 +143,7 @@
             ]
         },
         {
-            "endpoint": "/discounts",
+            "endpoint": "/api/discounts",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -146,7 +162,7 @@
             ]
         },
         {
-            "endpoint": "/discounts",
+            "endpoint": "/api/discounts",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -165,7 +181,7 @@
             ]
         },
         {
-            "endpoint": "/discounts/{key}",
+            "endpoint": "/api/discounts/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -184,7 +200,7 @@
             ]
         },
         {
-            "endpoint": "/discounts/{key}",
+            "endpoint": "/api/discounts/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -203,7 +219,7 @@
             ]
         },
         {
-            "endpoint": "/discounts/{key}",
+            "endpoint": "/api/discounts/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -222,7 +238,7 @@
             ]
         },
         {
-            "endpoint": "/discounts/{key}",
+            "endpoint": "/api/discounts/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -241,7 +257,7 @@
             ]
         },
         {
-            "endpoint": "/events",
+            "endpoint": "/api/events",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -260,7 +276,7 @@
             ]
         },
         {
-            "endpoint": "/events",
+            "endpoint": "/api/events",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -279,7 +295,7 @@
             ]
         },
         {
-            "endpoint": "/events/{key}",
+            "endpoint": "/api/events/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -298,7 +314,7 @@
             ]
         },
         {
-            "endpoint": "/events/{key}",
+            "endpoint": "/api/events/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -317,7 +333,7 @@
             ]
         },
         {
-            "endpoint": "/events/{key}",
+            "endpoint": "/api/events/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -336,7 +352,7 @@
             ]
         },
         {
-            "endpoint": "/events/{key}",
+            "endpoint": "/api/events/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -355,7 +371,7 @@
             ]
         },
         {
-            "endpoint": "/orderforms",
+            "endpoint": "/api/orderforms",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -374,7 +390,7 @@
             ]
         },
         {
-            "endpoint": "/orderforms",
+            "endpoint": "/api/orderforms",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -393,7 +409,7 @@
             ]
         },
         {
-            "endpoint": "/orderforms/{key}",
+            "endpoint": "/api/orderforms/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -412,7 +428,7 @@
             ]
         },
         {
-            "endpoint": "/orderforms/{key}",
+            "endpoint": "/api/orderforms/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -431,7 +447,7 @@
             ]
         },
         {
-            "endpoint": "/orderforms/{key}",
+            "endpoint": "/api/orderforms/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -450,7 +466,7 @@
             ]
         },
         {
-            "endpoint": "/orderforms/{key}",
+            "endpoint": "/api/orderforms/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -469,7 +485,7 @@
             ]
         },
         {
-            "endpoint": "/orders",
+            "endpoint": "/api/orders",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -488,7 +504,7 @@
             ]
         },
         {
-            "endpoint": "/orders",
+            "endpoint": "/api/orders",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -507,7 +523,7 @@
             ]
         },
         {
-            "endpoint": "/orders/{key}",
+            "endpoint": "/api/orders/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -526,7 +542,7 @@
             ]
         },
         {
-            "endpoint": "/orders/{key}",
+            "endpoint": "/api/orders/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -545,7 +561,7 @@
             ]
         },
         {
-            "endpoint": "/orders/{key}",
+            "endpoint": "/api/orders/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -564,7 +580,7 @@
             ]
         },
         {
-            "endpoint": "/orders/{key}",
+            "endpoint": "/api/orders/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -583,7 +599,7 @@
             ]
         },
         {
-            "endpoint": "/organizers",
+            "endpoint": "/api/organizers",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -602,7 +618,7 @@
             ]
         },
         {
-            "endpoint": "/organizers",
+            "endpoint": "/api/organizers",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -621,7 +637,7 @@
             ]
         },
         {
-            "endpoint": "/organizers/{key}",
+            "endpoint": "/api/organizers/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -640,7 +656,7 @@
             ]
         },
         {
-            "endpoint": "/organizers/{key}",
+            "endpoint": "/api/organizers/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -659,7 +675,7 @@
             ]
         },
         {
-            "endpoint": "/organizers/{key}",
+            "endpoint": "/api/organizers/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -678,7 +694,7 @@
             ]
         },
         {
-            "endpoint": "/organizers/{key}",
+            "endpoint": "/api/organizers/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -697,7 +713,7 @@
             ]
         },
         {
-            "endpoint": "/sessions",
+            "endpoint": "/api/sessions",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -716,7 +732,7 @@
             ]
         },
         {
-            "endpoint": "/sessions",
+            "endpoint": "/api/sessions",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -735,7 +751,7 @@
             ]
         },
         {
-            "endpoint": "/sessions/{key}",
+            "endpoint": "/api/sessions/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -754,7 +770,7 @@
             ]
         },
         {
-            "endpoint": "/sessions/{key}",
+            "endpoint": "/api/sessions/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -773,7 +789,7 @@
             ]
         },
         {
-            "endpoint": "/sessions/{key}",
+            "endpoint": "/api/sessions/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -792,7 +808,7 @@
             ]
         },
         {
-            "endpoint": "/sessions/{key}",
+            "endpoint": "/api/sessions/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -811,7 +827,7 @@
             ]
         },
         {
-            "endpoint": "/tickets",
+            "endpoint": "/api/tickets",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -830,7 +846,7 @@
             ]
         },
         {
-            "endpoint": "/tickets",
+            "endpoint": "/api/tickets",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -849,7 +865,7 @@
             ]
         },
         {
-            "endpoint": "/tickets/{key}",
+            "endpoint": "/api/tickets/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -868,7 +884,7 @@
             ]
         },
         {
-            "endpoint": "/tickets/{key}",
+            "endpoint": "/api/tickets/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -887,7 +903,7 @@
             ]
         },
         {
-            "endpoint": "/tickets/{key}",
+            "endpoint": "/api/tickets/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -906,7 +922,7 @@
             ]
         },
         {
-            "endpoint": "/tickets/{key}",
+            "endpoint": "/api/tickets/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -925,7 +941,7 @@
             ]
         },
         {
-            "endpoint": "/tickettypes",
+            "endpoint": "/api/tickettypes",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -944,7 +960,7 @@
             ]
         },
         {
-            "endpoint": "/tickettypes",
+            "endpoint": "/api/tickettypes",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -963,7 +979,7 @@
             ]
         },
         {
-            "endpoint": "/tickettypes/{key}",
+            "endpoint": "/api/tickettypes/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -982,7 +998,7 @@
             ]
         },
         {
-            "endpoint": "/tickettypes/{key}",
+            "endpoint": "/api/tickettypes/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1001,7 +1017,7 @@
             ]
         },
         {
-            "endpoint": "/tickettypes/{key}",
+            "endpoint": "/api/tickettypes/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1020,7 +1036,7 @@
             ]
         },
         {
-            "endpoint": "/tickettypes/{key}",
+            "endpoint": "/api/tickettypes/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1039,7 +1055,7 @@
             ]
         },
         {
-            "endpoint": "/usergroups",
+            "endpoint": "/api/usergroups",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1058,7 +1074,7 @@
             ]
         },
         {
-            "endpoint": "/usergroups",
+            "endpoint": "/api/usergroups",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1077,7 +1093,7 @@
             ]
         },
         {
-            "endpoint": "/usergroups/{key}",
+            "endpoint": "/api/usergroups/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1096,7 +1112,7 @@
             ]
         },
         {
-            "endpoint": "/usergroups/{key}",
+            "endpoint": "/api/usergroups/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1115,7 +1131,7 @@
             ]
         },
         {
-            "endpoint": "/usergroups/{key}",
+            "endpoint": "/api/usergroups/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1134,7 +1150,7 @@
             ]
         },
         {
-            "endpoint": "/usergroups/{key}",
+            "endpoint": "/api/usergroups/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1153,7 +1169,7 @@
             ]
         },
         {
-            "endpoint": "/users",
+            "endpoint": "/api/users",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1172,7 +1188,7 @@
             ]
         },
         {
-            "endpoint": "/users",
+            "endpoint": "/api/users",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1191,7 +1207,7 @@
             ]
         },
         {
-            "endpoint": "/users/{key}",
+            "endpoint": "/api/users/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1210,7 +1226,7 @@
             ]
         },
         {
-            "endpoint": "/users/{key}",
+            "endpoint": "/api/users/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1229,7 +1245,7 @@
             ]
         },
         {
-            "endpoint": "/users/{key}",
+            "endpoint": "/api/users/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1248,7 +1264,7 @@
             ]
         },
         {
-            "endpoint": "/users/{key}",
+            "endpoint": "/api/users/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1267,7 +1283,7 @@
             ]
         },
         {
-            "endpoint": "/attendee_of",
+            "endpoint": "/api/attendee_of",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1286,7 +1302,7 @@
             ]
         },
         {
-            "endpoint": "/attendee_of",
+            "endpoint": "/api/attendee_of",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1305,7 +1321,7 @@
             ]
         },
         {
-            "endpoint": "/attendee_of/{key}",
+            "endpoint": "/api/attendee_of/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1324,7 +1340,7 @@
             ]
         },
         {
-            "endpoint": "/attendee_of/{key}",
+            "endpoint": "/api/attendee_of/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1343,7 +1359,7 @@
             ]
         },
         {
-            "endpoint": "/attendee_of/{key}",
+            "endpoint": "/api/attendee_of/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1362,7 +1378,7 @@
             ]
         },
         {
-            "endpoint": "/attendee_of/{key}",
+            "endpoint": "/api/attendee_of/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1381,7 +1397,7 @@
             ]
         },
         {
-            "endpoint": "/discount_on",
+            "endpoint": "/api/discount_on",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1400,7 +1416,7 @@
             ]
         },
         {
-            "endpoint": "/discount_on",
+            "endpoint": "/api/discount_on",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1419,7 +1435,7 @@
             ]
         },
         {
-            "endpoint": "/discount_on/{key}",
+            "endpoint": "/api/discount_on/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1438,7 +1454,7 @@
             ]
         },
         {
-            "endpoint": "/discount_on/{key}",
+            "endpoint": "/api/discount_on/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1457,7 +1473,7 @@
             ]
         },
         {
-            "endpoint": "/discount_on/{key}",
+            "endpoint": "/api/discount_on/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1476,7 +1492,7 @@
             ]
         },
         {
-            "endpoint": "/discount_on/{key}",
+            "endpoint": "/api/discount_on/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1495,7 +1511,7 @@
             ]
         },
         {
-            "endpoint": "/group_of",
+            "endpoint": "/api/group_of",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1514,7 +1530,7 @@
             ]
         },
         {
-            "endpoint": "/group_of",
+            "endpoint": "/api/group_of",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1533,7 +1549,7 @@
             ]
         },
         {
-            "endpoint": "/group_of/{key}",
+            "endpoint": "/api/group_of/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1552,7 +1568,7 @@
             ]
         },
         {
-            "endpoint": "/group_of/{key}",
+            "endpoint": "/api/group_of/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1571,7 +1587,7 @@
             ]
         },
         {
-            "endpoint": "/group_of/{key}",
+            "endpoint": "/api/group_of/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1590,7 +1606,7 @@
             ]
         },
         {
-            "endpoint": "/group_of/{key}",
+            "endpoint": "/api/group_of/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1609,7 +1625,7 @@
             ]
         },
         {
-            "endpoint": "/has_order",
+            "endpoint": "/api/has_order",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1628,7 +1644,7 @@
             ]
         },
         {
-            "endpoint": "/has_order",
+            "endpoint": "/api/has_order",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1647,7 +1663,7 @@
             ]
         },
         {
-            "endpoint": "/has_order/{key}",
+            "endpoint": "/api/has_order/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1666,7 +1682,7 @@
             ]
         },
         {
-            "endpoint": "/has_order/{key}",
+            "endpoint": "/api/has_order/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1685,7 +1701,7 @@
             ]
         },
         {
-            "endpoint": "/has_order/{key}",
+            "endpoint": "/api/has_order/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1704,7 +1720,7 @@
             ]
         },
         {
-            "endpoint": "/has_order/{key}",
+            "endpoint": "/api/has_order/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1723,7 +1739,7 @@
             ]
         },
         {
-            "endpoint": "/has_ticket",
+            "endpoint": "/api/has_ticket",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1742,7 +1758,7 @@
             ]
         },
         {
-            "endpoint": "/has_ticket",
+            "endpoint": "/api/has_ticket",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1761,7 +1777,7 @@
             ]
         },
         {
-            "endpoint": "/has_ticket/{key}",
+            "endpoint": "/api/has_ticket/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1780,7 +1796,7 @@
             ]
         },
         {
-            "endpoint": "/has_ticket/{key}",
+            "endpoint": "/api/has_ticket/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1799,7 +1815,7 @@
             ]
         },
         {
-            "endpoint": "/has_ticket/{key}",
+            "endpoint": "/api/has_ticket/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1818,7 +1834,7 @@
             ]
         },
         {
-            "endpoint": "/has_ticket/{key}",
+            "endpoint": "/api/has_ticket/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1837,7 +1853,7 @@
             ]
         },
         {
-            "endpoint": "/has_tickettype",
+            "endpoint": "/api/has_tickettype",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1856,7 +1872,7 @@
             ]
         },
         {
-            "endpoint": "/has_tickettype",
+            "endpoint": "/api/has_tickettype",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1875,7 +1891,7 @@
             ]
         },
         {
-            "endpoint": "/has_tickettype/{key}",
+            "endpoint": "/api/has_tickettype/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1894,7 +1910,7 @@
             ]
         },
         {
-            "endpoint": "/has_tickettype/{key}",
+            "endpoint": "/api/has_tickettype/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -1913,7 +1929,7 @@
             ]
         },
         {
-            "endpoint": "/has_tickettype/{key}",
+            "endpoint": "/api/has_tickettype/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -1932,7 +1948,7 @@
             ]
         },
         {
-            "endpoint": "/has_tickettype/{key}",
+            "endpoint": "/api/has_tickettype/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -1951,7 +1967,7 @@
             ]
         },
         {
-            "endpoint": "/member_of",
+            "endpoint": "/api/member_of",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -1970,7 +1986,7 @@
             ]
         },
         {
-            "endpoint": "/member_of",
+            "endpoint": "/api/member_of",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -1989,7 +2005,7 @@
             ]
         },
         {
-            "endpoint": "/member_of/{key}",
+            "endpoint": "/api/member_of/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2008,7 +2024,7 @@
             ]
         },
         {
-            "endpoint": "/member_of/{key}",
+            "endpoint": "/api/member_of/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -2027,7 +2043,7 @@
             ]
         },
         {
-            "endpoint": "/member_of/{key}",
+            "endpoint": "/api/member_of/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -2046,7 +2062,7 @@
             ]
         },
         {
-            "endpoint": "/member_of/{key}",
+            "endpoint": "/api/member_of/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -2065,7 +2081,7 @@
             ]
         },
         {
-            "endpoint": "/ordersettings",
+            "endpoint": "/api/ordersettings",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2084,7 +2100,7 @@
             ]
         },
         {
-            "endpoint": "/ordersettings",
+            "endpoint": "/api/ordersettings",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -2103,7 +2119,7 @@
             ]
         },
         {
-            "endpoint": "/ordersettings/{key}",
+            "endpoint": "/api/ordersettings/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2122,7 +2138,7 @@
             ]
         },
         {
-            "endpoint": "/ordersettings/{key}",
+            "endpoint": "/api/ordersettings/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -2141,7 +2157,7 @@
             ]
         },
         {
-            "endpoint": "/ordersettings/{key}",
+            "endpoint": "/api/ordersettings/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -2160,7 +2176,7 @@
             ]
         },
         {
-            "endpoint": "/ordersettings/{key}",
+            "endpoint": "/api/ordersettings/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -2179,7 +2195,7 @@
             ]
         },
         {
-            "endpoint": "/organized_by",
+            "endpoint": "/api/organized_by",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2198,7 +2214,7 @@
             ]
         },
         {
-            "endpoint": "/organized_by",
+            "endpoint": "/api/organized_by",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -2217,7 +2233,7 @@
             ]
         },
         {
-            "endpoint": "/organized_by/{key}",
+            "endpoint": "/api/organized_by/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2236,7 +2252,7 @@
             ]
         },
         {
-            "endpoint": "/organized_by/{key}",
+            "endpoint": "/api/organized_by/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -2255,7 +2271,7 @@
             ]
         },
         {
-            "endpoint": "/organized_by/{key}",
+            "endpoint": "/api/organized_by/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -2274,7 +2290,7 @@
             ]
         },
         {
-            "endpoint": "/organized_by/{key}",
+            "endpoint": "/api/organized_by/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -2293,7 +2309,7 @@
             ]
         },
         {
-            "endpoint": "/has_perm",
+            "endpoint": "/api/has_perm",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2312,7 +2328,7 @@
             ]
         },
         {
-            "endpoint": "/has_perm",
+            "endpoint": "/api/has_perm",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -2331,7 +2347,7 @@
             ]
         },
         {
-            "endpoint": "/has_perm/{key}",
+            "endpoint": "/api/has_perm/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2350,7 +2366,7 @@
             ]
         },
         {
-            "endpoint": "/has_perm/{key}",
+            "endpoint": "/api/has_perm/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -2369,7 +2385,7 @@
             ]
         },
         {
-            "endpoint": "/has_perm/{key}",
+            "endpoint": "/api/has_perm/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -2388,7 +2404,7 @@
             ]
         },
         {
-            "endpoint": "/has_perm/{key}",
+            "endpoint": "/api/has_perm/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -2407,7 +2423,7 @@
             ]
         },
         {
-            "endpoint": "/part_of",
+            "endpoint": "/api/part_of",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2426,7 +2442,7 @@
             ]
         },
         {
-            "endpoint": "/part_of",
+            "endpoint": "/api/part_of",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -2445,7 +2461,7 @@
             ]
         },
         {
-            "endpoint": "/part_of/{key}",
+            "endpoint": "/api/part_of/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2464,7 +2480,7 @@
             ]
         },
         {
-            "endpoint": "/part_of/{key}",
+            "endpoint": "/api/part_of/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -2483,7 +2499,7 @@
             ]
         },
         {
-            "endpoint": "/part_of/{key}",
+            "endpoint": "/api/part_of/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -2502,7 +2518,7 @@
             ]
         },
         {
-            "endpoint": "/part_of/{key}",
+            "endpoint": "/api/part_of/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -2521,7 +2537,7 @@
             ]
         },
         {
-            "endpoint": "/belongs_to",
+            "endpoint": "/api/belongs_to",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2540,7 +2556,7 @@
             ]
         },
         {
-            "endpoint": "/belongs_to",
+            "endpoint": "/api/belongs_to",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -2559,7 +2575,7 @@
             ]
         },
         {
-            "endpoint": "/belongs_to/{key}",
+            "endpoint": "/api/belongs_to/{key}",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2578,7 +2594,7 @@
             ]
         },
         {
-            "endpoint": "/belongs_to/{key}",
+            "endpoint": "/api/belongs_to/{key}",
             "method": "PUT",
             "extra_config": null,
             "output_encoding": "json",
@@ -2597,7 +2613,7 @@
             ]
         },
         {
-            "endpoint": "/belongs_to/{key}",
+            "endpoint": "/api/belongs_to/{key}",
             "method": "PATCH",
             "extra_config": null,
             "output_encoding": "json",
@@ -2616,7 +2632,7 @@
             ]
         },
         {
-            "endpoint": "/belongs_to/{key}",
+            "endpoint": "/api/belongs_to/{key}",
             "method": "DELETE",
             "extra_config": null,
             "output_encoding": "json",
@@ -2635,10 +2651,10 @@
             ]
         },
         {
-            "endpoint": "/auth/login",
+            "endpoint": "/api/auth/login",
             "method": "POST",
             "extra_config": null,
-            "output_encoding": "json",
+            "output_encoding": "no-op",
             "concurrent_calls": 1,
             "backend": [
                 {
@@ -2651,10 +2667,17 @@
                     ],
                     "disable_host_sanitize": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Authorization",
+                "accept",
+                "content-length",
+                "Set-Cookie"
             ]
         },
         {
-            "endpoint": "/auth/signup",
+            "endpoint": "/api/auth/signup",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
@@ -2673,7 +2696,7 @@
             ]
         },
         {
-            "endpoint": "/auth/whoami",
+            "endpoint": "/api/auth/whoami",
             "method": "GET",
             "extra_config": null,
             "output_encoding": "json",
@@ -2692,7 +2715,7 @@
             ]
         },
         {
-            "endpoint": "/auth/logout",
+            "endpoint": "/api/auth/logout",
             "method": "POST",
             "extra_config": null,
             "output_encoding": "json",
