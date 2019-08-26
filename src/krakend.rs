@@ -29,6 +29,7 @@ pub struct Backend {
     pub extra_config: ExtraConfig,
     pub host: Vec<String>,
     pub disable_host_sanitize: bool,
+    pub is_collection: bool,
 }
 
 #[derive(Debug, Serialize, Deserialize, Default)]
