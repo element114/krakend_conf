@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "extra_config": {},
+    "timeout": "3000ms",
+    "cache_ttl": "300s",
+    "output_encoding": "json",
+    "read_timeout": "5s",
+    "write_timeout": "10s",
+    "name": "Service name",
+    "port": 8099,
+    "endpoints": [
+        {
+            "endpoint": "/addresses/ok",
+            "method": "POST",
+            "headers_to_pass": [ "Content-Type", "Content-Length" ],
+            "backend": [
+                {
+                    "url_pattern": "v2/5d6145aa3200005e008e6081",
+                    "host": [
+                        "http://www.mocky.io"
+                    ]
+                }
+            ]
+        }
+    ]
+}

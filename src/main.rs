@@ -71,6 +71,7 @@ fn create_endpoint(
     e.method = method;
     e.output_encoding = enc.to_owned();
     e.concurrent_calls = 1i64;
+    e.headers_to_pass = vec!["Content-Type".to_owned(), "Content-Length".to_owned()];
     let b = Backend {
         url_pattern: backend_pth,
         encoding: enc.to_owned(),
@@ -78,7 +79,7 @@ fn create_endpoint(
         extra_config: ExtraConfig::default(),
         host: hosts,
         disable_host_sanitize: false,
-        is_collection
+        is_collection,
     };
     e.backend = vec![b];
     e

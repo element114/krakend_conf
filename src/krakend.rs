@@ -19,6 +19,7 @@ pub struct Endpoint {
     pub output_encoding: String,
     pub concurrent_calls: i64,
     pub backend: Vec<Backend>,
+    pub headers_to_pass: Vec<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Default)]

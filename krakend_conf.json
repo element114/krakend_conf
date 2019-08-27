@@ -1,32 +1,13 @@
 {
     "version": 2,
-    "extra_config": {
-        "github_com/devopsfaith/krakend-cors": {
-            "allow_origins": [
-                "*"
-            ],
-            "expose_headers": [
-                "Content-Length"
-            ],
-            "max_age": "12h",
-            "allow_methods": [
-                "GET",
-                "HEAD",
-                "POST",
-                "PUT",
-                "DELETE",
-                "OPTIONS",
-                "PATCH"
-            ]
-        }
-    },
+    "extra_config": {},
     "timeout": "3000ms",
     "cache_ttl": "300s",
     "output_encoding": "json",
     "read_timeout": "5s",
     "write_timeout": "10s",
-    "name": "API Service",
-    "port": 8443,
+    "name": "Service name",
+    "port": 8099,
     "endpoints": [
         {
             "endpoint": "/api/attendees",
@@ -46,6 +27,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -66,6 +51,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -86,6 +75,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -106,6 +99,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -126,6 +123,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -146,6 +147,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -166,6 +171,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -186,6 +195,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -206,6 +219,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -226,6 +243,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -246,6 +267,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -266,6 +291,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -286,6 +315,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -306,6 +339,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -326,6 +363,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -346,6 +387,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -366,6 +411,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -386,6 +435,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -406,6 +459,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -426,6 +483,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -446,6 +507,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -466,6 +531,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -486,6 +555,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -506,6 +579,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -526,6 +603,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -546,6 +627,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -566,6 +651,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -586,6 +675,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -606,6 +699,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -626,6 +723,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -646,6 +747,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -666,6 +771,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -686,6 +795,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -706,6 +819,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -726,6 +843,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -746,6 +867,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -766,6 +891,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -786,6 +915,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -806,6 +939,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -826,6 +963,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -846,6 +987,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -866,6 +1011,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -886,6 +1035,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -906,6 +1059,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -926,6 +1083,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -946,6 +1107,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -966,6 +1131,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -986,6 +1155,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1006,6 +1179,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1026,6 +1203,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1046,6 +1227,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1066,6 +1251,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1086,6 +1275,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1106,6 +1299,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1126,6 +1323,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1146,6 +1347,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1166,6 +1371,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1186,6 +1395,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1206,6 +1419,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1226,6 +1443,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1246,6 +1467,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1266,6 +1491,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1286,6 +1515,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1306,6 +1539,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1326,6 +1563,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1346,6 +1587,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1366,6 +1611,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1386,6 +1635,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1406,6 +1659,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1426,6 +1683,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1446,6 +1707,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1466,6 +1731,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1486,6 +1755,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1506,6 +1779,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1526,6 +1803,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1546,6 +1827,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1566,6 +1851,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1586,6 +1875,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1606,6 +1899,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1626,6 +1923,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1646,6 +1947,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1666,6 +1971,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1686,6 +1995,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1706,6 +2019,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1726,6 +2043,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1746,6 +2067,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1766,6 +2091,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1786,6 +2115,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1806,6 +2139,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1826,6 +2163,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1846,6 +2187,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1866,6 +2211,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1886,6 +2235,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1906,6 +2259,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1926,6 +2283,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1946,6 +2307,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1966,6 +2331,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -1986,6 +2355,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2006,6 +2379,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2026,6 +2403,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2046,6 +2427,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2066,6 +2451,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2086,6 +2475,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2106,6 +2499,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2126,6 +2523,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2146,6 +2547,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2166,6 +2571,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2186,6 +2595,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2206,6 +2619,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2226,6 +2643,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2246,6 +2667,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2266,6 +2691,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2286,6 +2715,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2306,6 +2739,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2326,6 +2763,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2346,6 +2787,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2366,6 +2811,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2386,6 +2835,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2406,6 +2859,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2426,6 +2883,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2446,6 +2907,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2466,6 +2931,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2486,6 +2955,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2506,6 +2979,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2526,6 +3003,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2546,6 +3027,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2566,6 +3051,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2586,6 +3075,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2606,6 +3099,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2626,6 +3123,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2646,6 +3147,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2666,6 +3171,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2686,6 +3195,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2706,6 +3219,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2726,6 +3243,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2746,6 +3267,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2766,6 +3291,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2786,6 +3315,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2806,6 +3339,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2826,6 +3363,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2846,6 +3387,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": true
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         },
         {
@@ -2866,6 +3411,10 @@
                     "disable_host_sanitize": false,
                     "is_collection": false
                 }
+            ],
+            "headers_to_pass": [
+                "Content-Type",
+                "Content-Length"
             ]
         }
     ]
