@@ -3435,6 +3435,36 @@
                 "Content-Type",
                 "Content-Length"
             ]
+        },
+        {
+            "endpoint": "/demo/{param1}/{param2}/{param3}",
+            "querystring_params": ["*"],
+            "output_encoding": "no-op",
+            "backend": [{
+                "url_pattern": "/{param1}/{param2}/{param3}",
+                "encoding": "no-op",
+                "host": ["http://localhost:8080"]
+            }]
+        },
+        {
+            "endpoint": "/demo/{param1}/{param2}",
+            "querystring_params": ["*"],
+            "output_encoding": "no-op",
+            "backend": [{
+                "url_pattern": "/{param1}/{param2}",
+                "encoding": "no-op",
+                "host": ["http://localhost:8080"]
+            }]
+        },
+        {
+            "endpoint": "/demo/{single_param}",
+            "querystring_params": ["*"],
+            "output_encoding": "no-op",
+            "backend": [{
+                "url_pattern": "/{single_param}",
+                "encoding": "no-op",
+                "host": ["http://localhost:8080"]
+            }]
         }
     ]
 }
