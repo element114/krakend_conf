@@ -4,12 +4,14 @@ use krakend::{Backend, Endpoint, ExtraConfig};
 use openapiv3::{OpenAPI, PathItem};
 
 /// Builds a krakend endpoints[] from an openapi.json
-/// * `openapi_json` - The String representation of an openapi v3 JSON
+/// * `openapi` - The String representation of an openapi v3 JSON
 /// * `hosts` - The host[] in krakend endpoint conf
 /// ```
+/// use openapiv3::OpenAPI;
 /// std::env::set_var("RUST_BACKTRACE", "1");
-/// let openapi_json: String = std::fs::read_to_string("./openapi.json").unwrap().parse().unwrap();
-/// assert!(!openapi_json.is_empty());
+/// let openapi_str: String = std::fs::read_to_string("./openapi.json").unwrap().parse().unwrap();
+/// assert!(!openapi_str.is_empty());
+/// let openapi_json: OpenAPI = serde_json::from_str(&openapi_str).expect("Could not deserialize input");
 /// let hosts = vec!["http://127.0.0.1:8529".to_owned()];
 /// let endpoints = krakend_conf::convert_endpoints(openapi_json, hosts);
 /// assert!(!endpoints.is_empty());
@@ -17,9 +19,7 @@ use openapiv3::{OpenAPI, PathItem};
 /// let res = std::fs::write("krakend_endpoints.json", eps.unwrap().as_bytes());
 /// println!("{:#?}", res);
 /// ```
-pub fn convert_endpoints(openapi_json: String, hosts: Vec<String>) -> Vec<Endpoint> {
-    let openapi: OpenAPI = serde_json::from_str(&openapi_json).expect("Could not deserialize input");
-
+pub fn convert_endpoints(openapi: OpenAPI, hosts: Vec<String>) -> Vec<Endpoint> {
     let srv = openapi.servers.first().unwrap();
     let base_path = srv.url.clone();
     let title = openapi.info.title;
