@@ -17,7 +17,7 @@ publish = true
 [dependencies]
 serde = { version = "1.0.99", features = ["derive"] }
 openapiv3 = "0.3.0"
-serde_yaml = "0.8.9"
+serde_yaml = "0.8.14"
 
 [dev-dependencies]
 serde_json = "1.0.40"
