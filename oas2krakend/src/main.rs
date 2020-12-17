@@ -1,5 +1,7 @@
 use clap::{App, Arg};
 use openapiv3::OpenAPI;
+use askama::Template;
+// use krakend_conf::{Endpoint};
 
 fn main() {
     let matches = App::new("My Test Program")
@@ -18,7 +20,7 @@ fn main() {
                 .short("c")
                 .long("conf")
                 .takes_value(true)
-                .help("Path to the Krakend configuration YAML output. default: krakend_conf.yaml"),
+                .help("Path to the Krakend configuration Json output. default: krakend.json"),
         )
         .arg(
             Arg::with_name("hosts")
@@ -30,7 +32,7 @@ fn main() {
         .get_matches();
 
     let oas_path = matches.value_of("spec").unwrap_or("openapi.json");
-    let conf_path = matches.value_of("conf").unwrap_or("krakend_conf.yaml");
+    let conf_path = matches.value_of("conf").unwrap_or("krakend.json");
     let hosts = if let Some(value) = matches.value_of("conf") {
         value.split(',').map(|s| s.to_string()).collect()
     } else {
@@ -54,7 +56,17 @@ fn main() {
     };
 
     let endpoints = krakend_conf::convert_endpoints(openapi_spec, hosts);
-    let eps = serde_json::to_string(&endpoints);
-    let res = std::fs::write(conf_path, eps.unwrap().as_bytes());
+    let eps = serde_json::to_string(&endpoints).unwrap();
+   
+    let conf_tmpl = KrakendTemplate { endpoints: eps.as_str() };
+    let template = conf_tmpl.render().unwrap();
+    let res = std::fs::write(conf_path, template.as_bytes());
+
     println!("{:#?}", res);
+}
+
+#[derive(Template)]
+#[template(path = "krakend.json", escape = "none")]
+struct KrakendTemplate<'a> {
+    endpoints: &'a str,
 }

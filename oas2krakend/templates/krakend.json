@@ -1,0 +1,58 @@
+{
+    "version": 2,
+    "extra_config": {
+        "github_com/devopsfaith/krakend-cors": {
+            "allow_origins": [
+                "*"
+            ],
+            "expose_headers": [
+                "Origin",
+                "Content-Type",
+                "Content-Length",
+                "X-Requested-With",
+                "Acc",
+                "Allow",
+                "Access-Control-Allow-Headers",
+                "Access-Control-Request-Headers",
+                "Access-Control-Allow-Origin",
+                "Cookie"
+            ],
+            "allow_headers": [
+                "Origin",
+                "Content-Type",
+                "Content-Length",
+                "X-Requested-With",
+                "Acc",
+                "Authorization",
+                "Cookie",
+                "Accept",
+                "X-Auth-Token",
+                "Cache-Control",
+                "Content-Language",
+                "Expires",
+                "Last-Modified",
+                "Pragma"
+            ],
+            "max_age": "12h",
+            "allow_methods": [
+                "GET",
+                "HEAD",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS",
+                "PATCH",
+                "CONNECT",
+                "TRACE"
+            ],
+            "allow_credentials": true
+        }
+    },
+    "timeout": "3000ms",
+    "cache_ttl": "300s",
+    "read_timeout": "5s",
+    "write_timeout": "10s",
+    "name": "Service name",
+    "port": 8099,
+    "endpoints": {{ endpoints }}
+}

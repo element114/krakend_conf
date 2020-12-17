@@ -1,7 +1,7 @@
 mod krakend;
 
-use krakend::{Backend, Endpoint, ExtraConfig};
-use openapiv3::{OpenAPI, PathItem};
+pub use krakend::{Backend, Endpoint, ExtraConfig};
+pub use openapiv3::{OpenAPI, PathItem};
 
 /// Builds a krakend endpoints[] from an openapi.json
 /// * `openapi` - The String representation of an openapi v3 JSON

@@ -1,0 +1,58 @@
+{
+    "version": 2,
+    "extra_config": {
+        "github_com/devopsfaith/krakend-cors": {
+            "allow_origins": [
+                "*"
+            ],
+            "expose_headers": [
+                "Origin",
+                "Content-Type",
+                "Content-Length",
+                "X-Requested-With",
+                "Acc",
+                "Allow",
+                "Access-Control-Allow-Headers",
+                "Access-Control-Request-Headers",
+                "Access-Control-Allow-Origin",
+                "Cookie"
+            ],
+            "allow_headers": [
+                "Origin",
+                "Content-Type",
+                "Content-Length",
+                "X-Requested-With",
+                "Acc",
+                "Authorization",
+                "Cookie",
+                "Accept",
+                "X-Auth-Token",
+                "Cache-Control",
+                "Content-Language",
+                "Expires",
+                "Last-Modified",
+                "Pragma"
+            ],
+            "max_age": "12h",
+            "allow_methods": [
+                "GET",
+                "HEAD",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS",
+                "PATCH",
+                "CONNECT",
+                "TRACE"
+            ],
+            "allow_credentials": true
+        }
+    },
+    "timeout": "3000ms",
+    "cache_ttl": "300s",
+    "read_timeout": "5s",
+    "write_timeout": "10s",
+    "name": "Service name",
+    "port": 8099,
+    "endpoints": [{"endpoint":"/Swagger Petstore/pet","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet","method":"PUT","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet/findByStatus","method":"GET","extra_config":null,"backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet/findByStatus","host":["http://127.0.0.1:8080"],"is_collection":true}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet/findByTags","method":"GET","extra_config":null,"backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet/findByTags","host":["http://127.0.0.1:8080"],"is_collection":true}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet/{petId}","method":"GET","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet/{petId}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet/{petId}","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet/{petId}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet/{petId}","method":"DELETE","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet/{petId}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/pet/{petId}/uploadImage","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/pet/{petId}/uploadImage","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/store/inventory","method":"GET","extra_config":null,"backend":[{"url_pattern":"http://petstore.swagger.io/v2/store/inventory","host":["http://127.0.0.1:8080"],"is_collection":true}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/store/order","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/store/order","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/store/order/{orderId}","method":"GET","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/store/order/{orderId}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/store/order/{orderId}","method":"DELETE","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/store/order/{orderId}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/user","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/createWithArray","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/createWithArray","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/createWithList","method":"POST","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/createWithList","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/login","method":"GET","extra_config":null,"backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/login","host":["http://127.0.0.1:8080"],"is_collection":true}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/logout","method":"GET","extra_config":null,"backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/logout","host":["http://127.0.0.1:8080"],"is_collection":true}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/{username}","method":"GET","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/{username}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/{username}","method":"PUT","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/{username}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]},{"endpoint":"/Swagger Petstore/user/{username}","method":"DELETE","extra_config":null,"output_encoding":"no-op","backend":[{"url_pattern":"http://petstore.swagger.io/v2/user/{username}","encoding":"no-op","host":["http://127.0.0.1:8080"],"is_collection":false}],"headers_to_pass":["Content-Type","Content-Length"]}]
+}
