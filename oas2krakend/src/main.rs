@@ -1,12 +1,11 @@
 use clap::{App, Arg, AppSettings};
 use openapiv3::OpenAPI;
 use askama::Template;
-// use krakend_conf::{Endpoint};
 
 fn main() {
-    let matches = App::new("My Test Program")
+    let matches = App::new("oas2krakend - a Krakend config generator command line tool.")
         .setting(AppSettings::ArgRequiredElseHelp)
-        .version("0.1.0")
+        .version(env!("CARGO_PKG_VERSION"))
         .author("Andras Mocsary <425404+mocsy@users.noreply.github.com>")
         .about("Creates a krakend-ce configuration yaml from an OpenAPI 3 specification.")
         .arg(
