@@ -30,6 +30,13 @@ fn main() {
                 .takes_value(true)
                 .help("Comma separated list of host urls. default: http://127.0.0.1:8080"),
         )
+        .arg(
+            Arg::with_name("port")
+                .short("p")
+                .long("port")
+                .takes_value(true)
+                .help("The port on which krakend will listen on. default: 8099"),
+        )
         .get_matches();
 
     let oas_path = matches.value_of("spec").unwrap_or("openapi.json");
@@ -39,6 +46,7 @@ fn main() {
     } else {
         vec!["http://127.0.0.1:8080".to_owned()]
     };
+    let kport = matches.value_of("port").unwrap_or("8099");
 
     let openapi_str: String = std::fs::read_to_string(oas_path)
         .unwrap_or_else(|_| panic!("Expected a valid text file at: {}.", oas_path))
@@ -59,7 +67,7 @@ fn main() {
     let endpoints = krakend_conf::convert_endpoints(openapi_spec, hosts);
     let eps = serde_json::to_string(&endpoints).unwrap();
    
-    let conf_tmpl = KrakendTemplate { endpoints: eps.as_str() };
+    let conf_tmpl = KrakendTemplate { endpoints: eps.as_str(), kport };
     let template = conf_tmpl.render().unwrap();
     let res = std::fs::write(conf_path, template.as_bytes());
 
@@ -70,4 +78,5 @@ fn main() {
 #[template(path = "krakend.json", escape = "none")]
 struct KrakendTemplate<'a> {
     endpoints: &'a str,
+    kport: &'a str,
 }

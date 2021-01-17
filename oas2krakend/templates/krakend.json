@@ -53,6 +53,6 @@
     "read_timeout": "5s",
     "write_timeout": "10s",
     "name": "Service name",
-    "port": 8099,
+    "port": {{ kport }},
     "endpoints": {{ endpoints }}
 }
