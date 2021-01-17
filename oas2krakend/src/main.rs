@@ -1,10 +1,11 @@
-use clap::{App, Arg};
+use clap::{App, Arg, AppSettings};
 use openapiv3::OpenAPI;
 use askama::Template;
 // use krakend_conf::{Endpoint};
 
 fn main() {
     let matches = App::new("My Test Program")
+        .setting(AppSettings::ArgRequiredElseHelp)
         .version("0.1.0")
         .author("Andras Mocsary <425404+mocsy@users.noreply.github.com>")
         .about("Creates a krakend-ce configuration yaml from an OpenAPI 3 specification.")
@@ -33,7 +34,7 @@ fn main() {
 
     let oas_path = matches.value_of("spec").unwrap_or("openapi.json");
     let conf_path = matches.value_of("conf").unwrap_or("krakend.json");
-    let hosts = if let Some(value) = matches.value_of("conf") {
+    let hosts = if let Some(value) = matches.value_of("hosts") {
         value.split(',').map(|s| s.to_string()).collect()
     } else {
         vec!["http://127.0.0.1:8080".to_owned()]
